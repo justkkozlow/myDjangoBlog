@@ -129,7 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 JAZZMIN_SETTINGS = {
     'changeform_format': 'horizontal_tabs',
     'changeform_format_overrides': {'auth.user': 'collapsible', 'auth.group': 'vertical_tabs'},
-    'show_ui_builder': True,
+    'show_ui_builder': False,
 
 }
 
