@@ -4,17 +4,34 @@
     <img class="rounded-circle article-img" src="#">
     <div class="media-body">
       <div class="article-metadata">
-        <a class="mr-2" href="#">{{ post.author }}</a>
         <small class="text-muted">{{ post.publish }}</small>
-
 <!--          <div>-->
 <!--            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="#">Редактировать</a>-->
 <!--            <a class="btn btn-danger btn-sm mt-1 mb-1" href="#">Удалить</a>-->
 <!--          </div>-->
-
       </div>
       <h2 class="article-title">{{ post.title }}</h2>
       <p class="article-content">{{ post.body|linebreaks }}</p>
+        <p>
+          <a class="btn btn-primary bg-blue" href="{% url 'blog:post_share' post.id %}"><i class='bx bx-send bx-tada-hover'></i></a>
+        </p>
     </div>
+
   </article>
-{% endblock content %}
+  <div class="content-section">
+    {% for comment in comments %}
+    <p>
+      Комментарий {{ forloop.counter }} от {{ comment.name }}
+      {{ comment.created }}
+    </p>
+    <div class="content-section">
+      {{ comment.body|linebreaks }}
+    </div>
+    {% empty %}
+    <p>
+      Комментариев нет
+    </p>
+    {% endfor %}
+    {% include "blog/post/includes/comment_form.html" %}
+  </div>
+{% endblock %}
