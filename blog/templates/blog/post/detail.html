@@ -1,4 +1,6 @@
 {% extends "blog/base.html" %}
+{% load blog_tags %}
+
 {% block content %}
   <article class="media content-section">
     <img class="rounded-circle article-img" src="#">
@@ -11,7 +13,7 @@
 <!--          </div>-->
       </div>
       <h2 class="article-title">{{ post.title }}</h2>
-      <p class="article-content">{{ post.body|linebreaks }}</p>
+      <p class="article-content">{{ post.body|markdown }}</p>
       <p>
         <a class="btn btn-primary bg-blue" href="{% url 'blog:post_share' post.id %}"><i class='bx bx-send bx-tada-hover'></i></a>
       </p>
