@@ -12,9 +12,17 @@
       </div>
       <h2 class="article-title">{{ post.title }}</h2>
       <p class="article-content">{{ post.body|linebreaks }}</p>
-        <p>
-          <a class="btn btn-primary bg-blue" href="{% url 'blog:post_share' post.id %}"><i class='bx bx-send bx-tada-hover'></i></a>
-        </p>
+      <p>
+        <a class="btn btn-primary bg-blue" href="{% url 'blog:post_share' post.id %}"><i class='bx bx-send bx-tada-hover'></i></a>
+      </p>
+      <h3>См. также:</h3>
+      {% for post in similar_posts %}
+      <p>
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+      </p>
+      {% empty %}
+      <p>Нет похожих статей</p>
+      {% endfor %}
     </div>
 
   </article>
