@@ -14,6 +14,7 @@
      <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
      <title>{% block title %}{% endblock %}</title>
+
 </head>
 <body>
     <header class="site-header">
@@ -43,7 +44,7 @@
           {% block content %}{% endblock %}
         </div>
         <div class="col-md-4">
-          {% include "_catalog.html" %}
+          {% include "_sidebar.html" %}
         </div>
       </div>
     </main>
