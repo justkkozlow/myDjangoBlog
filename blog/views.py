@@ -1,14 +1,14 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Post
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.mail import send_mail
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
-
-from .forms import EmailPostForm, CommentForm, SearchForm
-from django.views.decorators.http import require_POST
 from django.db.models import Count
+from django.shortcuts import render, get_object_or_404
+from django.views.decorators.http import require_POST
 
 from taggit.models import Tag
+
+from .forms import EmailPostForm, CommentForm, SearchForm
+from .models import Post
 
 
 def post_list(request, tag_slug=None):
