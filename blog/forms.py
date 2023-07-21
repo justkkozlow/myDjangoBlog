@@ -31,3 +31,9 @@ class CommentForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
             field.label = ''
+
+
+class SearchForm(forms.Form):
+    query = forms.CharField(label='',
+                            widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Поиск'}),
+                            )

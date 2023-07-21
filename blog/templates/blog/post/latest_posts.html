@@ -1,0 +1,8 @@
+<ul>
+  {% for post in latest_posts %}
+  <li>
+    <a class="card-link" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+

@@ -1,5 +1,5 @@
 {% load blog_tags %}
-<div class="content-section">
+<div class="content-section" xmlns="http://www.w3.org/1999/html">
   <h3>Разделы</h3>
     <ul class="list-group">
       <li class="list-group-item list-group-item-light active">Новые записи</li>
@@ -16,9 +16,17 @@
     <ul>
         {% for post in most_commented_post %}
         <li>
-            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            <a class="card-link" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
         </li>
         {% endfor %}
     </ul>
-    <a class="navbar-brand mr-4" href="{% url 'blog:post_feed' %}"><i class='bx bx-rss bx-tada-hover'></i></a>
+</div>
+<div class="content-section" style="text-align: center;">
+    <form class="input-group" method="GET">
+        <div class="form-outline">{{ form.as_p }}
+        </div>
+        <button class="btn btn-primary" style="height: 38px" type="submit">
+            <i class='bx bx-search bx-tada-hover'></i>
+        </button>
+    </form>
 </div>
